@@ -8,22 +8,19 @@ class User{
     @PrimaryColumn()
     id?: string;
 
-    @Column("name")
+    @Column()
     name: string;
 
-    @Column("username")
-    username: string;
-
-    @Column("email")
+    @Column()
     email: string;
 
-    @Column("password")
+    @Column()
     password: string;
 
-    @Column("driver_license")
+    @Column()
     driver_license: string;
 
-    @Column("isAdmin")
+    @Column()
     isAdmin: boolean;
 
     @CreateDateColumn()

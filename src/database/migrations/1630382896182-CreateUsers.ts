@@ -10,33 +10,29 @@ export class CreateUsers1630382896182 implements MigrationInterface {
                 columns:[{
                     name:"id",
                     type:"uuid",
-                    isPrimary:true
+                    isPrimary:true,
                 },
                 {
                     name:"name",
-                    type:"varchar"
-                },
-                {
-                    name:"username",
                     type:"varchar",
-                    isUnique: true
                 },
                 {
                     name:"password",
-                    type:"varchar"
+                    type:"varchar",
+                    isUnique: true,
                 },
                 {
                     name:"email",
-                    type:"varchar"
+                    type:"varchar",
                 },
                 {
                     name:"driver_license",
-                    type:"varchar"
+                    type:"varchar",
                 },
                 {
                     name:"isAdmin",
                     type:"boolean",
-                    default: false
+                    default: false,
                 },
                 {
                     name:"created_at",

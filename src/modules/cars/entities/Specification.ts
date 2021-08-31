@@ -1,16 +1,16 @@
 import { v4 as uuidV4 } from "uuid";
 import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
-@Entity()
+@Entity("specifications")
 class Specification{
 
     @PrimaryColumn()
     id?: string;
 
-    @Column("name")
+    @Column()
     name: string;
 
-    @Column("description")
+    @Column()
     description: string;
 
     @CreateDateColumn()
