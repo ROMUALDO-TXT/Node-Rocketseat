@@ -11,6 +11,7 @@
     "paths":{
         "/categories":{
             "post":{
+                "tags":["Categories"],
                 "summary":"Create a category",
                 "description":"Create a new category",
                 "requestBody":{
@@ -44,7 +45,7 @@
                 }
             },
             "get":{
-                "tags":["Category"],
+                "tags":["Categories"],
                 "summary": "List all categories",
                 "description": "List of all categories",
                 "response":{
@@ -72,7 +73,67 @@
                     }
                 }
             }
-        }
+        },
+        "/categories/import":{
+            "post":{
+                "tags":["Categories"],
+                "summary":"Upload a category",
+                "description":"Upload a new category",
+                "requestBody":{
+                    "content":{
+                        "multipart/form-data":{
+                            "schema":{
+                                "type":"object",
+                                "properties":{
+                                    "file":{
+                                        "type":"string",
+                                        "format":"binary"
+                                    }
+                                }
+                             }
+                        }
+                    }
+                },
+                "response":{
+                    "201":{
+                        "description":"Categories created"
+                    }
+                }
+            }
+        },
+        "/specifications":{
+            "post":{
+                "tags": ["Specifications"],
+                "summary":"Create a specification",
+                "description":"Create a new specification",
+                "requestBody":{
+                    "application/json":{
+                        "$ref": "#/definitions/Specification"
+                    }
+                },
+                "response":{
+                    "201":{
+                        "description":"Specification created"
+                    },
+                    "500":{
+                        "description":"Specification already exists"
+                    }
 
+                }
+            }
+        }
+    },
+    "definitions":{
+        "Specification":{
+            "type":"object",
+            "properties":{
+                "name":{
+                    "type":"string"
+                },
+                "description":{
+                    "type":"string"
+                }
+            }
+        }
     }
 }
