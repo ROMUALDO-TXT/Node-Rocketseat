@@ -3,10 +3,10 @@ import { AppError } from "@shared/errors/AppError";
 import { ICreateCategoryDTO } from "@modules/cars/dtos/ICreateCategoryDTO";
 import { ICategoriesRepository } from "@modules/cars/repositories/ICategoriesRepository";
 
-@injectable()
+//@injectable()
 class CreateCategoryUseCase{
     constructor(
-        @inject("CategoriesRepository")
+        //@inject("CategoriesRepository")
         private categoriesRepository: ICategoriesRepository){}
 
     async execute({description, name}: ICreateCategoryDTO):Promise<void> {

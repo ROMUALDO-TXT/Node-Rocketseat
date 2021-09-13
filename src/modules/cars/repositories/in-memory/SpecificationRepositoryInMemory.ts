@@ -11,7 +11,7 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository{
         const specification = this.specifications.find((specification) => specification.name === name) as Specification;
         return specification;
     }
-    async create(data: ICreateSpecificationDTO): Promise<void> {
+    async create(data: ICreateSpecificationDTO): Promise<Specification> {
         const {name, description} = data;
         const specification = new Specification();
         
@@ -20,11 +20,17 @@ class SpecificationRepositoryInMemory implements ISpecificationsRepository{
             description,
         })
         this.specifications.push(specification);
+        return specification;
     }
     async list(): Promise<Specification[]> {
         const all = this.specifications;
         return all;
     }
+    async findByids(ids: string[]): Promise<Specification[]> {
+        const all = this.specifications.filter((specification) => ids.includes(specification.id))
+        return all;
+    }
+    
     
 
 } 

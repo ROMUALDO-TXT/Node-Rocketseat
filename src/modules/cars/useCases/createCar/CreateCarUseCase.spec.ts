@@ -21,7 +21,6 @@ describe("Create Car", ()=>{
             brand:"brand",
             category_id:"category",
         });
-        console.log(car);
         expect(car).toHaveProperty("id");
     })
     it("Should not be able to create a car with a existent license_plate", ()=>{

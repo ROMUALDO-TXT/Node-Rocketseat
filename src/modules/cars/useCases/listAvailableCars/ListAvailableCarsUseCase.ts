@@ -7,10 +7,10 @@ interface IRequest{
     brand?: string;
     name?: string;
 }
-@injectable()
+//@injectable()
 class ListAvailableCarsUseCase{
     constructor(
-        @inject("CarsRepository")
+        //@inject("CarsRepository")
         private carsRepository: ICarsRepository){};
     
     async execute({category_id, name, brand}: IRequest):Promise<Car[]>{

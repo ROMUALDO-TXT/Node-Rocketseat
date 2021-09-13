@@ -12,6 +12,6 @@ const listSpecificationsController = new ListSpecificationsController();
 
 specificationsRoutes.post("/", ensureAuthenticated, ensureAdmin, createSpecificationController.handle);
 
-specificationsRoutes.get("/", ensureAuthenticated, listSpecificationsController.handle)
+specificationsRoutes.get("/", ensureAuthenticated, listSpecificationsController.handle);
 
 export { specificationsRoutes };

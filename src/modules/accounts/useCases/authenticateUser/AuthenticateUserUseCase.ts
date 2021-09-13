@@ -18,17 +18,16 @@ interface IResponse{
     token: string;
 }
 
-@injectable()
+//@injectable()
 class AuthenticateUserUseCase{
 
     constructor(
-        @inject("UsersRepository")
+        //@inject("UsersRepository")
         private usersRepository: IUsersRepository
     ){}
-
     async execute({email, password}:IRequest):Promise<IResponse>{
 
-        const user = await this.usersRepository.findByEmail(email) as User;
+        const user = await this.usersRepository.findByEmail(email);
         if(!user){
             throw new AppError("Email or Password incorrect!");
         }
@@ -39,7 +38,7 @@ class AuthenticateUserUseCase{
         }
 
         const token = sign({},"ac45ce951975d8aec9ddfecbed728c14", {
-            subject: user.id.toString(),
+            subject: user.id,
             expiresIn: "1d",
         });
         
